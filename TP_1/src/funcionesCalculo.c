@@ -5,6 +5,11 @@
  */
 #include "funcionesCalculo.h"
 
+
+/**
+ * float pedirNumeroFlotante
+ * Pide los operadores al usuario.
+ */
 float pedirNumeroFlotante(char* mensaje, char* mensajeError, int min, int max)
 {
 	float numeroIngresado;
@@ -23,6 +28,10 @@ float pedirNumeroFlotante(char* mensaje, char* mensajeError, int min, int max)
 	return numeroIngresado;
 }
 
+/**
+ * float sumar
+ * SUMA LOS OPERADORES ENTRE SI.
+ */
 float sumar(float numeroUno, float numeroDos)
 {
 	float total;
@@ -32,6 +41,10 @@ float sumar(float numeroUno, float numeroDos)
 	return total;
 }
 
+/**
+ * float restar
+ * RESTA LOS OPERADORES ENTRE SI
+ */
 float restar(float numeroUno, float numeroDos)
 {
 	float total;
@@ -40,6 +53,11 @@ float restar(float numeroUno, float numeroDos)
 
 	return total;
 }
+
+/**
+ * float dividir
+ * DIVIDE LOS OPERADORES SOLO SI NINGUNO DE LOS OPERADORES ES CERO, SINO DEVUELVE 0.
+ */
 
 float dividir(float numeroUno, float numeroDos)
 {
@@ -52,6 +70,10 @@ float dividir(float numeroUno, float numeroDos)
 
 	return resultado;
 }
+/**
+ * float multiplicar
+ * MULTIPLICA LOS OPERADORES
+ */
 
 float multiplicar(float numeroUno, float numeroDos)
 {
@@ -61,6 +83,10 @@ float multiplicar(float numeroUno, float numeroDos)
 
 	return resultado;
 }
+/**
+ * unsigned long long factorizar
+ * REALIZA LA FACTORIZACION USANDO RECURSIVIDAD
+ */
 
 unsigned long long factorizar(float numeroIngresado)
 {

@@ -5,6 +5,9 @@
 
 #include "funcionesMenu.h"
 
+/**
+ * EJECUTA LA INTERFAZ DEL MENU PARA EL USUARIO.
+ */
 void ejecutarMenu()
 {
 	int opcion;
@@ -51,6 +54,10 @@ void ejecutarMenu()
 		}
 }
 
+/**^
+ * FUNCION GRAFICA PARA HACER LA INTERFAZ DEL MENU MAS ORGANIZADA PARA EL USUARIO PONIENDO UN SEPARADOR ENTRE ITERACIONES DEL MENU
+ */
+
 void mostrarSeparador()
 {
 	printf("========================\n");
@@ -74,6 +81,9 @@ int pedirNumeroEntero(char* mensaje, char* mensajeError, int min, int max)
 	return numeroIngresado;
 }
 
+/**
+ * MUESTRA LOS RESULTADOS DE LAS OPERACIONES Y EN CASO DE QUE LA DIVISION RETORNE 0 AVISA QUE NO SE PUDO REALIZAR LA OPERACION
+ */
 void mostrar(float operadorUno, float operadorDos, float suma, float resta, float division, float multiplicacion, unsigned long long factorialUno, unsigned long long factorialDos)
 {
 	printf("Operador uno: %.2f   Operador Dos: %.2f\n", operadorUno, operadorDos);
