@@ -1,5 +1,6 @@
 /*
  * funcionesMenu.h
+ *
  */
 
 #ifndef FUNCIONESMENU_H_
@@ -8,15 +9,10 @@
 #include <stdlib.h>
 #include "funcionesCalculo.h"
 
-#define MIN -20
-#define MAX 20
-
-
+void mostrarSeparador();
 void ejecutarMenu();
-int pedirOpcion(char* mensaje, char* mensajeError, int minimo, int maximo);
-void separador();
-void limpiarConsola();
-void mostrarResultados(float operadorUno, float operadorDos, float suma, float resta, float division, float multiplicacion, unsigned long int factorialUno,unsigned long int factorialDos);
+int pedirNumeroEntero(char* mensaje, char* mensajeError, int min, int max);
+void mostrar(float operadorUno, float operadorDos, float suma, float resta, float division, float multiplicacion, unsigned long long factorialUno, unsigned long long factorialDos);
 
 
 #endif /* FUNCIONESMENU_H_ */

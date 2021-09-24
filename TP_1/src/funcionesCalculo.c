@@ -1,22 +1,11 @@
 /*
  * funcionesCalculo.c
+ *
+ *
  */
-
 #include "funcionesCalculo.h"
 
-/**
- * @fn int pedirNumero(char*, char*, int, int)
- * @brief Funcion para pedirle un numero al usuario y validarlo, usada para pedir los operadores.
- *
- * @param mensaje
- * @param mensajeError
- * @param minimo
- * @param maximo
- * @return
- */
-
-
-float pedirNumero(char* mensaje, char* mensajeError, int minimo, int maximo)
+float pedirNumeroFlotante(char* mensaje, char* mensajeError, int min, int max)
 {
 	float numeroIngresado;
 
@@ -24,7 +13,7 @@ float pedirNumero(char* mensaje, char* mensajeError, int minimo, int maximo)
 	fflush(stdin);
 	scanf("%f", &numeroIngresado);
 
-	while(numeroIngresado < minimo || numeroIngresado > maximo)
+	while(numeroIngresado < min || numeroIngresado > max)
 	{
 		printf("%s", mensajeError);
 		fflush(stdin);
@@ -34,73 +23,37 @@ float pedirNumero(char* mensaje, char* mensajeError, int minimo, int maximo)
 	return numeroIngresado;
 }
 
-/**
- * @fn int suma(int, int)
- * @brief Funcion para sumar los operadores ingresados por el usuario en el menu.
- *
- * @param numeroUno
- * @param numeroDos
- * @return
- */
-float suma(float numeroUno, float numeroDos)
+float sumar(float numeroUno, float numeroDos)
 {
-	float resultado;
+	float total;
 
-	resultado = numeroUno + numeroDos;
+	total = numeroUno + numeroDos;
 
-	return resultado;
+	return total;
 }
 
-/**
- * @fn int resta(int, int)
- * @brief Funcion para restar los operadores ingresados por el usuario en el menu.
- *
- * @param numeroUno
- * @param numeroDos
- * @return
- */
-float resta(float numeroUno, float numeroDos)
+float restar(float numeroUno, float numeroDos)
 {
-	float resultado;
+	float total;
 
-	resultado = numeroUno - numeroDos;
+	total = numeroUno - numeroDos;
 
-	return resultado;
+	return total;
 }
 
-/**
- * @fn float division(int, int)
- * @brief Divide los operadores ingresados por el usuario, en caso de uno de los operadores sea 0 la funcion retornara 0
- para despues poder informar al usuario que no se pudo realizar la operacion en la funcion mostrar.
- *
- * @param numeroUno
- * @param numeroDos
- * @return
- */
-float division(float numeroUno, float numeroDos)
+float dividir(float numeroUno, float numeroDos)
 {
-	float resultado;
+	float resultado = 0;
 
-	if(numeroDos == 0 || numeroUno == 0)
-	{
-		resultado = 0;
-	}
-	else
+	if(numeroUno != 0 && numeroDos != 0)
 	{
 		resultado = numeroUno / numeroDos;
 	}
+
 	return resultado;
 }
 
-/**
- * @fn int multiplicacion(int, int)
- * @brief Multiplica los operadores que el usuario ingrese en el menu.
- *
- * @param numeroUno
- * @param numeroDos
- * @return
- */
-float multiplicacion(float numeroUno, float numeroDos)
+float multiplicar(float numeroUno, float numeroDos)
 {
 	float resultado;
 
@@ -109,29 +62,20 @@ float multiplicacion(float numeroUno, float numeroDos)
 	return resultado;
 }
 
-/**
- * @fn unsigned long int factorizacion(int)
- * @brief Realiza el factorial del numero ingresado en el menu si es diistinto de 0 o 1, en caso de que el numero sea 1 se
- retornara 1, y en caso de ser 0 se retornara 0,
- *
- * @param numeroACalcular
- * @return
- */
-unsigned long int factorizacion(float numeroACalcular)
+unsigned long long factorizar(float numeroIngresado)
 {
-	unsigned long int factorial = 1;
+	unsigned long long factorial = 1;
 
-	if(numeroACalcular != 1 && numeroACalcular != 0)
+	if(numeroIngresado != 1 && numeroIngresado != 0)
 	{
-		factorial = (int)numeroACalcular * factorizacion((int)numeroACalcular - 1);
+		factorial = (int)numeroIngresado * factorizar((int)numeroIngresado-1);
 	}
-	else
+	else if(numeroIngresado == 0)
 	{
-		if(numeroACalcular == 0)
-		{
-			factorial = 0;
-		}
+		factorial = 0;
 	}
 
 	return factorial;
 }
+
+

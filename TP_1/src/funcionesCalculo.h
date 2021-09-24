@@ -1,5 +1,6 @@
 /*
  * funcionesCalculo.h
+ *
  */
 
 #ifndef FUNCIONESCALCULO_H_
@@ -9,13 +10,11 @@
 #define MIN -20
 #define MAX 20
 
-
-float pedirNumero(char* mensaje, char* mensajeError, int minimo, int maximo);
-float suma(float numeroUno, float numeroDos);
-float resta(float numeroUno, float numeroDos);
-float division(float numeroUno, float numeroDos);
-float multiplicacion(float numeroUno, float numeroDos);
-unsigned long int factorizacion(float numeroACalcular);
-
+float pedirNumeroFlotante(char* mensaje, char* mensajeError, int min, int max);
+float sumar(float numeroUno, float numeroDos);
+float restar(float numeroUno, float numeroDos);
+float dividir(float numeroUno, float numeroDos);
+float multiplicar(float numeroUno, float numeroDos);
+unsigned long long factorizar(float numeroIngresado);
 
 #endif /* FUNCIONESCALCULO_H_ */
