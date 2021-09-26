@@ -11,8 +11,8 @@
 void ejecutarMenu()
 {
 	int opcion;
-		float operadorUno;
-		float operadorDos;
+		float operadorUno = -9000;
+		float operadorDos = -9000;
 		float totalSuma;
 		float totalResta;
 		float totalDiv;
@@ -21,27 +21,46 @@ void ejecutarMenu()
 		unsigned long long factorialDos;
 
 		do{
-			opcion = pedirNumeroEntero("\n==========MENU==========\n1)Ingresar primer operador.\n2)Ingresar segundo Operador.\n3)Calcular todas las operaciones.\n4)Mostrar los resultados.\n5)Salir.\nELIJA UNA OPCION: \n", "ERROR, REINGRESE UNA OPCION ENTRE 1 Y 5: \n", 1, 5);
+
+				opcion = pedirNumeroEntero(operadorUno, operadorDos, "ERROR, REINGRESE UNA OPCION ENTRE 1 Y 5: \n", 1, 5);
+
+			//opcion = pedirNumeroEntero("\n==========MENU==========\n1)Ingresar primer operador.\n2)Ingresar segundo Operador.\n3)Calcular todas las operaciones.\n4)Mostrar los resultados.\n5)Salir.\nELIJA UNA OPCION: \n", "ERROR, REINGRESE UNA OPCION ENTRE 1 Y 5: \n", 1, 5);
 			mostrarSeparador();
 
 			switch(opcion)
 			{
 			case 1:
-				operadorUno= pedirNumeroFlotante("Ingrese el primer operador (entre 20 y -20): ","ERROR reingrese un numero entre 20 y -20: ", -20, 20);
+				operadorUno= pedirNumeroFlotante("Ingrese el primer operador (entre 20 y -20): ","ERROR reingrese un numero entre 20 y 0: ", -20, 20);
 				break;
 			case 2:
-				operadorDos= pedirNumeroFlotante("Ingrese el segundo operador (entre 20 y -20): ","ERROR reingrese un numero entre 20 y -20: ", -20, 20);
+				operadorDos= pedirNumeroFlotante("Ingrese el segundo operador (entre 20 y -20): ","ERROR reingrese un numero entre 20 y : ", -20, 20);
 				break;
 			case 3:
-				totalSuma = sumar(operadorUno, operadorDos);
-				totalResta = restar(operadorUno, operadorDos);
-				totalDiv = dividir(operadorUno, operadorDos);
-				totalMult = multiplicar(operadorUno, operadorDos);
-				factorialUno = factorizar(operadorUno);
-				factorialDos = factorizar(operadorDos);
+				if(operadorUno == -9000|| operadorDos == -9000)
+				{
+					printf("ERROR asegurese de ingresar todos los operadores.");
+				}
+				else
+				{
+					totalSuma = sumar(operadorUno, operadorDos);
+					totalResta = restar(operadorUno, operadorDos);
+					totalDiv = dividir(operadorUno, operadorDos);
+					totalMult = multiplicar(operadorUno, operadorDos);
+					factorialUno = factorizar(operadorUno);
+					factorialDos = factorizar(operadorDos);
+					printf("Operaciones realizadas.");
+				}
 				break;
 			case 4:
-				mostrar(operadorUno, operadorDos, totalSuma, totalResta, totalDiv, totalMult, factorialUno, factorialDos);
+				if(operadorUno == -9000|| operadorDos == -9000)
+				{
+					printf("ERROR asegurese de ingresar todos los operadores.");
+				}
+				else
+				{
+					mostrar(operadorUno, operadorDos, totalSuma, totalResta, totalDiv, totalMult, factorialUno, factorialDos);
+				}
+
 				break;
 			}
 
@@ -63,11 +82,33 @@ void mostrarSeparador()
 	printf("========================\n");
 }
 
-int pedirNumeroEntero(char* mensaje, char* mensajeError, int min, int max)
+int pedirNumeroEntero(float operadorUno, float operadorDos, char* mensajeError, int min, int max)
 {
 	int numeroIngresado;
 
-	printf("%s", mensaje);
+	printf("\n==========MENU==========\n");
+
+	if(operadorUno==-9000)
+	{
+		printf("1)Ingresar primer operador.(A=X)\n");
+	}
+	else
+	{
+		printf("1)Ingresar primer operador.(A=%.2f)\n", operadorUno);
+	}
+
+	if(operadorDos==-9000)
+		{
+			printf("1)Ingresar segundo operador.(A=Y)\n");
+		}
+		else
+		{
+			printf("1)Ingresar segundo operador.(A=%.2f)\n", operadorDos);
+		}
+
+
+
+	printf("3)Calcular todas las operaciones.\n4)Mostrar los resultados.\n5)Salir.\nELIJA UNA OPCION: \n");
 	fflush(stdin);
 	scanf("%d", &numeroIngresado);
 
@@ -100,6 +141,21 @@ void mostrar(float operadorUno, float operadorDos, float suma, float resta, floa
 	}
 
 	printf("Multiplicacion: %.2f\n", multiplicacion);
-	printf("Factorial de %.2f: %I64u\n", operadorUno, factorialUno);
-	printf("Factorial de %.2f: %I64u\n", operadorDos, factorialDos);
+
+	if(factorialUno==0){
+		printf("No se pudo realizar la factorizacion del primer operador");
+	}
+	else
+	{
+		printf("Factorial de %.2f: %I64u\n", operadorUno, factorialUno);
+	}
+
+	if(factorialDos==0){
+		printf("No se pudo realizar la factorizacion del segundo operador");
+	}
+	else
+	{
+		printf("Factorial de %.2f: %I64u\n", operadorDos, factorialDos);
+	}
+
 }

@@ -96,7 +96,7 @@ unsigned long long factorizar(float numeroIngresado)
 	{
 		factorial = (int)numeroIngresado * factorizar((int)numeroIngresado-1);
 	}
-	else if(numeroIngresado == 0)
+	else if(numeroIngresado <= 0)
 	{
 		factorial = 0;
 	}

@@ -11,7 +11,7 @@
 
 void mostrarSeparador();
 void ejecutarMenu();
-int pedirNumeroEntero(char* mensaje, char* mensajeError, int min, int max);
+int pedirNumeroEntero(float operadorUno, float operadorDos, char* mensajeError, int min, int max);
 void mostrar(float operadorUno, float operadorDos, float suma, float resta, float division, float multiplicacion, unsigned long long factorialUno, unsigned long long factorialDos);
 
 
